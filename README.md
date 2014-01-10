@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/beyondalbert/applepie.png?branch=master)](https://travis-ci.org/beyondalbert/applepie)
+
 == README
 
 This README would normally document whatever steps are necessary to get the
