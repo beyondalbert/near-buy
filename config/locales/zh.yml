@@ -1,0 +1,18 @@
+zh:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "不能为空！"
+              taken: "已经被占用！"
+            password:
+              blank: "不能为空！"
+            password_confirmation:
+              confirmation: "两次输入密码不一致！"
+    attributes:
+      user:
+        email: "Email"
+        password: "密码"
+        password_confirmation: ""

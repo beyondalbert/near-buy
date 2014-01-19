@@ -1,0 +1,5 @@
+<%= form_tag(password_resets_path, class: "form-signin") do %>
+  <h2 class="form-signin-heading">找回密码</h2>
+  <%= text_field_tag(:email, params[:email],  class: "form-control", placeholder: "Email 地址") %>
+  <%= submit_tag "发送密码重置邮件", class: "btn btn-lg btn-primary btn-block" %>
+<% end %>
