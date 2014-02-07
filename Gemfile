@@ -7,6 +7,7 @@ gem 'rails', '4.0.0'
 # gem 'sqlite3'
 gem 'mysql2'
 gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'paperclip'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

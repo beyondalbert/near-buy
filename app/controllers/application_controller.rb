@@ -19,4 +19,27 @@ class ApplicationController < ActionController::Base
     end
     @current_user = user
   end
+
+  def render_403(options={})
+    render_error({:message => "对不起，您无权访问此页面。", :status => 403}.merge(options))
+    return false
+  end
+
+  def render_404(options={})
+    render_error({:message => "您访问的页面不存在或已被删除。", :status => 404}.merge(options))
+    return false
+  end
+
+  # 用于错误页面的处理
+  def render_error(arg)
+    arg = {:message => arg} unless arg.is_a?(Hash)
+    @message = arg[:message]
+    @status = arg[:status] || 500
+    respond_to do |format|
+      format.html {
+        render :template => 'common/error', :layout => false, :status => @status
+      }
+    end
+  end
+
 end

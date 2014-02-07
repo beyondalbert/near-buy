@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_uniqueness_of :email
 
+  has_many :items, foreign_key: "owner_id"
+  has_one :picture, as: :imageable, dependent: :destroy
+
   def self.authenticate(email, password)
     user = find_by_email(email)
     if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)

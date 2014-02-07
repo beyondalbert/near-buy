@@ -11,8 +11,20 @@ zh:
               blank: "不能为空！"
             password_confirmation:
               confirmation: "两次输入密码不一致！"
+        item:
+          attributes:
+            price:
+              not_a_number: "不是数字，请重新输入！"
     attributes:
       user:
         email: "Email"
         password: "密码"
         password_confirmation: ""
+        name: "昵称"
+        phone: "手机"
+        picture: "头像"
+      item:
+        subject: "标题"
+        description: "描述"
+        price: "价格"
+        picture: "物品展示图"

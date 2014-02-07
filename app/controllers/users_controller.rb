@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  layout "user", except: []
+  layout "user", except: [:edit]
 
   def new
     @user = User.new
@@ -15,9 +15,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+    @user.update(user_params)
+    redirect_to root_url, flash: {success: "更新个人资料成功！"}
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:email, :password, :password_confirmation, :name, :phone)
   end
 end

@@ -1,0 +1,39 @@
+<div class="row row-offcanvas row-offcanvas-right">
+
+  <div class="col-xs-12 col-sm-9">
+    <div class="panel panel-default item-box">
+      <div class="panel-body">
+      <h1><%= @item.subject %></h1>
+      <p><%= @item.description %></p>
+    </div>
+      <div class="item-buy panel-body">
+        <div class="buy-box">
+          <div class="item-price">
+            <b><i>￥</i><%= @item.price %></b>
+          </div>
+          <div class="buy-now">
+            <%= link_to "立刻购买", "#", class: "btn btn-primary btn-block btn-lg"%>
+          </div>
+          <div class="buy-num">
+            <p>已售<span><%= 10%></span>份</p>
+          </div>
+        </div>
+        <div class="item-img">
+          <%= image_tag @item.picture.file.url(:medium), class: "img-rounded f-left" %>
+          
+        </div>
+      </div>
+    </div>
+  </div><!--/span-->
+
+  <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <label>卖家：</label><%= @item.owner.name %>
+      </div>
+      <div class="panel-body">
+        <label>联系方式：</label><%= @item.owner.phone %>
+      </div>
+    </div>
+  </div><!--/span-->
+</div><!--/row-->

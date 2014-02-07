@@ -1,0 +1,66 @@
+<div class="row row-offcanvas row-offcanvas-right">
+
+  <div class="col-xs-12 col-sm-9">
+    <%= form_for @item, html: { class: "form-horizontal", role: "form", multipart: true } do |f| %>
+      <% if @item.errors.any? %>
+        <div class="alert alert-danger alert-dismissable">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <ul>
+            <% @item.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="form-group">
+        <label for="item_subject", class="col-sm-2 control-label"><%= f.label :subject %></label>
+        <div class="col-sm-7">
+          <%= f.text_field :subject, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="item_description", class="col-sm-2 control-label"><%= f.label :description %></label>
+        <div class="col-sm-7">
+          <%= f.text_area :description, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="item_price", class="col-sm-2 control-label"><%= f.label :price %></label>
+        <div class="col-sm-4">
+          <%= f.text_field :price, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="item_picture", class="col-sm-2 control-label"><%= f.label :picture %></label>
+        <div class="col-sm-4">
+          <%= image_tag @item.picture.file.url(:medium), class: "img-rounded f-left" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-7">
+          <%= f.submit '修改', class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div><!--/span-->
+
+  <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= link_to "创建物品", new_item_path, class: "btn btn-primary"%>
+      </div>
+    </div>
+    <div class="list-group">
+      <a href="#" class="list-group-item active">Link</a>
+      <a href="#" class="list-group-item">Link</a>
+      <a href="#" class="list-group-item">Link</a>
+      <a href="#" class="list-group-item">Link</a>
+      <a href="#" class="list-group-item">Link</a>
+      <a href="#" class="list-group-item">Link</a>
+      <a href="#" class="list-group-item">Link</a>
+      <a href="#" class="list-group-item">Link</a>
+      <a href="#" class="list-group-item">Link</a>
+      <a href="#" class="list-group-item">Link</a>
+    </div>
+  </div><!--/span-->
+</div><!--/row-->

@@ -13,15 +13,72 @@
  */
 
 .form-signin {
-	max-width: 330px;
-	padding: 15px;
-	margin: 0 auto;
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
 }
 
 .form-signin input {
-	margin: 5px 0px;
+  margin: 5px 0px;
 }
 
 .form-signin a {
-	float: right;
+  float: right;
+}
+
+.f-left {
+  float: left;
+}
+
+.f-right {
+  float: right;
+}
+
+.item-box {
+}
+
+.item-box .buy-box {
+  float: left;
+  width: 205px;
+  margin-right: 10px;
+  margin-left: 0;
+}
+
+.item-box .item-price {
+  width: 205px;
+  height: auto;
+  margin: 0 auto;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 10px;
+}
+
+.item-price b {
+  top: 5px;
+  left: 17px;
+  font-size: 36px;
+  font-family: helvetica;
+  font-wight: bold;
+  color: #de0909;
+}
+
+.item-price b i {
+  font-style: normal;
+  font-size: 18px;
+  margin-right: 4px;
+}
+
+.item-box .buy-num {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 10px 0;
+}
+
+.item-box .buy-num p {
+  margin: 20px 0px 0px 0px;
+  font: normal 16px Simhei;
+}
+
+.buy-num p span {
+  color: #de0909;
+  padding: 0px 5px;
 }
