@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   has_many :items, foreign_key: "owner_id"
   has_one :picture, as: :imageable, dependent: :destroy
+  has_many :addresses, dependent: :destroy
 
   def self.authenticate(email, password)
     user = find_by_email(email)
@@ -40,5 +41,9 @@ class User < ActiveRecord::Base
     begin
       self[column] = SecureRandom.urlsafe_base64
     end while User.exists?(column => self[column])
+  end
+
+  def default_address
+    self.addresses.select { |address| address.default}.first
   end
 end

@@ -33,6 +33,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @items = @item.owner.items.select { |i| i.id != @item.id }
+    @trade = Trade.new
   end
 
   def destroy

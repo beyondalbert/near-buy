@@ -15,6 +15,12 @@ zh:
           attributes:
             price:
               not_a_number: "不是数字，请重新输入！"
+        trade:
+          attributes:
+            number:
+              not_a_number: "不是数字，请重新输入！"
+            buyer:
+              invalid: "信息输入有错误：名字，电话，社交帐号和地址都不能为空！"
     attributes:
       user:
         email: "Email"
@@ -23,8 +29,13 @@ zh:
         name: "昵称"
         phone: "手机"
         picture: "头像"
+        sns_type: "社交帐号"
+        address: "地址"
       item:
         subject: "标题"
         description: "描述"
         price: "价格"
         picture: "物品展示图"
+      trade:
+        number: "购买数量"
+        buyer: "购买人"

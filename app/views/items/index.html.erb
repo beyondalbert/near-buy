@@ -8,40 +8,43 @@
       <button type="button" class="btn btn-default">所有发布的物品</button>
     </div>
 
-    <table id="items_list" class="table table-condensed">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>物品</th>
-          <th>价格</th>
-          <th>状态</th>
-          <th>操作</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @items.each.with_index do |item, index| %>
+    <div class="table-responsive">
+      <table id="items_list" class="table table-condensed">
+        <thead>
           <tr>
-            <td><%= index + 1 %></td>
-            <td>
-              <%= image_tag item.picture.file.url(:thumb), class: "img-rounded f-left" %>
-              <div class="f-left">
-                <%= link_to item.subject, item_path(item.id) %>
-              </div>
-            </td>
-            <td><%= item.price %></td>
-            <td><%= item.status %></td>
-            <td>
-              <%= link_to(edit_item_path(item.id)) do %>
-                <span class="glyphicon glyphicon-edit"></span>
-              <% end %>
-              <%= link_to(item_path(item.id), method: :delete, data: { confirm: "确定删除？"}) do %>
-                <span class="glyphicon glyphicon-trash"></span>
-              <% end %>
-            </td>
+            <th>#</th>
+            <th>物品</th>
+            <th>价格</th>
+            <th>状态</th>
+            <th>操作</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @items.each.with_index do |item, index| %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td>
+                <%= image_tag item.picture.file.url(:thumb), class: "img-rounded f-left" %>
+                <div class="f-left">
+                  <%= link_to item.subject, item_path(item.id) %>
+                </div>
+              </td>
+              <td><%= item.price %></td>
+              <td><%= item.status %></td>
+              <td>
+                <%= link_to('销量', {controller: "trades", action: "management", item_id: item.id}) %>
+                <%= link_to(edit_item_path(item.id)) do %>
+                  <span class="glyphicon glyphicon-edit"></span>
+                <% end %>
+                <%= link_to(item_path(item.id), method: :delete, data: { confirm: "确定删除？"}) do %>
+                  <span class="glyphicon glyphicon-trash"></span>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div><!--/span-->
 
   <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">

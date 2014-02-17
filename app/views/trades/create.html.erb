@@ -1,0 +1,5 @@
+<% if @success %>
+  window.location = '<%= item_path(@item.id) %>'
+<% else %>
+  $('#trade-errors-div').html("<%= escape_javascript(render partial: "trades/trade_errors") %>");
+<% end %>

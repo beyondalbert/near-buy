@@ -1,0 +1,18 @@
+<% @addresses.each.with_index do |address, index| %>
+  <div class="form-group">
+    <label for="user_email", class="col-sm-2 control-label">
+    </label>
+    <div class="col-sm-7">
+      <div class="radio address-box">
+        <label>
+          <%= radio_button_tag "default_address", address.default, address.default %>
+          <%= address.full_address %>
+        </label>
+        <span class="address-operate">
+          <%= link_to "删除", address_path(address.id), method: :delete, data: { confirm: "确定删除？" }, remote: true %>
+          <%= link_to_if !address.default, "设置为默认", { controller: "addresses", action: "set_default", id: address.id}, remote: true %>
+        </span>
+      </div>
+    </div>
+  </div>
+<% end %>

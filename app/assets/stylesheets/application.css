@@ -11,7 +11,6 @@
  *= require_self
  *= require_tree .
  */
-
 .form-signin {
   max-width: 330px;
   padding: 15px;
@@ -81,4 +80,22 @@
 .buy-num p span {
   color: #de0909;
   padding: 0px 5px;
+}
+
+.item-sd {
+  width: 100%;
+  float: left;
+  padding-bottom: 20px;
+}
+
+.item-sum {
+  padding-bottom: 10px;
+}
+
+.address-operate {
+  display: none;
+}
+
+.address-box:hover .address-operate {
+  display: inline;
 }

@@ -1,6 +1,7 @@
 Applepie::Application.routes.draw do
 
-  get "items/index"
+  get "addresses/set_default"
+  get "trades/management"
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
@@ -10,6 +11,9 @@ Applepie::Application.routes.draw do
   resources :sessions
   resources :password_resets
   resources :items
+  resources :trades
+  mount ChinaCity::Engine => '/china_city'
+  resources :addresses
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

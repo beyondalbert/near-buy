@@ -1,0 +1,73 @@
+<div class="row row-offcanvas row-offcanvas-right">
+  <div class="col-xs-12 col-sm-9">
+
+    <div class="item-sd">
+      <%= image_tag @item.picture.file.url(:thumb), class: "img-rounded f-left" %>
+      <div class="f-left">
+        <%= link_to @item.subject, item_path(@item.id) %>
+      </div>
+    </div>
+
+    <div class="item-sum">
+      <label>订单总金额：<%= @total_sales %></label>
+      <label>订单总数：<%= @sales_volume %></label>
+    </div>
+
+    <div class="table-responsive">
+      <table id="items_list" class="table table-condensed">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>买家</th>
+            <th>下单时间</th>
+            <th>金额</th>
+            <th>份数</th>
+            <th>地址</th>
+            <th>手机</th>
+            <th>sns</th>
+            <th>订单状态</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @trades.each.with_index do |trade, index| %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><%= trade.buyer.name %></td>
+              <td><%= trade.created_at.localtime.strftime("%F") %></td>
+              <td><%= trade.item.price * trade.number %></td>
+              <td>
+                <%= trade.number %>
+              </td>
+              <td><%= trade.buyer.full_address %></td>
+              <td><%= trade.buyer.phone %></td>
+              <td><%= trade.buyer.sns %></td>
+              <td><%= trade.status %></td>
+            </tr>
+          <% end %>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>总和：</td>
+            <td><%= @total_sales %></td>
+            <td><%= @sales_volume %></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div><!--/span-->
+
+  <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= link_to "创建物品", new_item_path, class: "btn btn-primary"%>
+      </div>
+    </div>
+    <div class="list-group">
+      <% @items.each do |item| %>
+        <%= link_to item.subject, {controller: "trades", action: "management", item_id: item.id}, class: "list-group-item #{@item.id == item.id ? "active" : ""}" %>
+      <% end %>
+    </div>
+  </div><!--/span-->
+</div><!--/row-->

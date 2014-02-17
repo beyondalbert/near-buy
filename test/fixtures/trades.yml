@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  saler_id: 1
+  item_id: 1
+  buyer_id: 1
+  number: 1
+
+two:
+  saler_id: 1
+  item_id: 1
+  buyer_id: 1
+  number: 1

@@ -8,6 +8,7 @@ gem 'rails', '4.0.0'
 gem 'mysql2'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'paperclip'
+gem 'china_city'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
