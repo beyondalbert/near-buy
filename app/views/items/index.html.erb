@@ -1,6 +1,6 @@
 <div class="row row-offcanvas row-offcanvas-right">
 
-  <div class="col-xs-12 col-sm-9">
+  <div class="col-xs-12 col-sm-9 panel panel-default left-div">
     <div class="btn-group">
       <button type="button" class="btn btn-default">最近一个月发布的物品</button>
       <button type="button" class="btn btn-default">最近半年发布的物品</button>
@@ -30,7 +30,7 @@
                 </div>
               </td>
               <td><%= item.price %></td>
-              <td><%= item.status %></td>
+              <td><%= APP_CONFIG['item_status'][item.status] %></td>
               <td>
                 <%= link_to('销量', {controller: "trades", action: "management", item_id: item.id}) %>
                 <%= link_to(edit_item_path(item.id)) do %>

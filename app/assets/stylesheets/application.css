@@ -99,3 +99,7 @@
 .address-box:hover .address-operate {
   display: inline;
 }
+
+.left-div {
+  padding: 15px 0px;
+}

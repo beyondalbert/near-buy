@@ -12,7 +12,11 @@
             <b><i>￥</i><%= @item.price %></b>
           </div>
           <div class="buy-now">
-            <%= link_to "立刻购买", "#buy-confirm", class: "btn btn-primary btn-block btn-lg", "data-toggle" => "modal"%>
+            <% if @item.closed? %>
+              <%= link_to "立刻购买", "#", class: "btn btn-primary btn-block btn-lg", "data-toggle" => "modal", "disabled" => "disabled"%>
+            <% else %>
+              <%= link_to "立刻购买", "#buy-confirm", class: "btn btn-primary btn-block btn-lg", "data-toggle" => "modal"%>
+            <% end %>
           </div>
           <div class="buy-num">
             <p>已售<span><%= @item.sales_volume %></span>份</p>

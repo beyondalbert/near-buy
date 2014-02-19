@@ -19,4 +19,8 @@ class Item < ActiveRecord::Base
     self.trades.map { |t| value += t.number }
     value
   end
+
+  def closed?
+    self.status == 2
+  end
 end

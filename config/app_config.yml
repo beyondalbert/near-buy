@@ -1,0 +1,16 @@
+defaults: &DEFAULTS
+  item_status:
+    1: "出售中"
+    2: "已关闭"
+  trade_status:
+    1: "新订单"
+    2: "已发货"
+
+development:
+  <<: *DEFAULTS
+
+test:
+  <<: *DEFAULTS
+
+production:
+  <<: *DEFAULTS
