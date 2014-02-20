@@ -27,14 +27,35 @@ class TradesController < ApplicationController
   end
 
   def management
-    if params[:item_id]
-      @trades = @item.trades
+    @flag = params[:flag]
+    case @flag
+    when "undo"
+      @trades = @item.trades.select { |trade| trade.status == 1 }
+    when "done"
+      @trades = @item.trades.select { | trade| trade.done? }
     else
-      @trades = current_user.trades
+      @trades = @item.trades
     end
+
     @items = current_user.items
     @total_sales = @item.total_sales
     @sales_volume = @item.sales_volume
+  end
+
+  def done_trade
+    @trade = Trade.find_by_id(params[:id])
+
+    if @trade.done?
+      @trade.status = 1
+    else
+      @trade.status = 2
+    end
+    @trade.save
+
+    respond_to do |format|
+      format.js
+    end
+
   end
 
   private

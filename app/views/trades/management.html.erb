@@ -10,7 +10,14 @@
 
     <div class="item-sum">
       <label>订单总金额：<%= @total_sales %></label>
-      <label>订单总数：<%= @sales_volume %></label>
+      <label>订单总数：<%= @item.trades_num %></label>
+      <label>销量：<%= @sales_volume %> 份</label>
+    </div>
+
+    <div class="btn-group">
+      <%= link_to "全部订单", {action: "management", item_id: @item.id }, class: @flag.nil? ? 'btn btn-primary' : 'btn btn-default' %>
+      <%= link_to "未发货订单", {action: "management", item_id: @item.id, flag: "undo"}, class: @flag == "undo" ? "btn btn-primary" : "btn btn-default" %>
+      <%= link_to "已发货订单", {action: "management", item_id: @item.id, flag: "done"}, class: @flag == "done" ? "btn btn-primary" : "btn btn-default" %>
     </div>
 
     <div class="table-responsive">
@@ -30,30 +37,22 @@
         </thead>
         <tbody>
           <% @trades.each.with_index do |trade, index| %>
-            <tr>
-              <td><%= index + 1 %></td>
-              <td><%= trade.buyer.name %></td>
-              <td><%= trade.created_at.localtime.strftime("%F") %></td>
-              <td><%= trade.item.price * trade.number %></td>
-              <td>
-                <%= trade.number %>
-              </td>
-              <td><%= trade.buyer.full_address %></td>
-              <td><%= trade.buyer.phone %></td>
-              <td><%= trade.buyer.sns %></td>
-              <td><%= trade.status %></td>
+            <tr id="trade_<%= trade.id.to_s %>">
+              <%= render "trade_item", {trade: trade} %>
             </tr>
           <% end %>
         </tbody>
-        <tfoot>
-          <tr>
-            <td></td>
-            <td></td>
-            <td>总和：</td>
-            <td><%= @total_sales %></td>
-            <td><%= @sales_volume %></td>
-          </tr>
-        </tfoot>
+        <% if @flag.nil? %>
+          <tfoot>
+            <tr>
+              <td></td>
+              <td></td>
+              <td>总和：</td>
+              <td><%= @total_sales %></td>
+              <td><%= @sales_volume %></td>
+            </tr>
+          </tfoot>
+        <% end %>
       </table>
     </div>
   </div><!--/span-->

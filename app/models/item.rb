@@ -23,4 +23,8 @@ class Item < ActiveRecord::Base
   def closed?
     self.status == 2
   end
+
+  def trades_num
+    self.trades.size
+  end
 end

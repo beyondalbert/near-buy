@@ -3,7 +3,7 @@ defaults: &DEFAULTS
     1: "出售中"
     2: "已关闭"
   trade_status:
-    1: "新订单"
+    1: "未发货"
     2: "已发货"
 
 development:

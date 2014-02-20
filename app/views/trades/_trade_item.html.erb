@@ -1,0 +1,25 @@
+<td><%= check_box_tag "deal_#{trade.id}", trade.id, trade.done? ? true : false, {'data-href' => "/trades/done_trade?id=#{trade.id}"} %></td>
+<td><%= trade.buyer.name %></td>
+<td><%= trade.created_at.localtime.strftime("%F") %></td>
+<td><%= trade.item.price * trade.number %></td>
+<td>
+  <%= trade.number %>
+</td>
+<td><%= trade.buyer.full_address %></td>
+<td><%= trade.buyer.phone %></td>
+<td><%= trade.buyer.sns %></td>
+<td><%= APP_CONFIG["trade_status"][trade.status] %></td>
+
+<script type="text/javascript">
+  var ck_box_id = 'deal_' + <%= trade.id.to_s %>;
+  $('#' + ck_box_id).click(function() {
+    $.ajax({
+      url: $(this).data('href'),
+      type: 'PUT',
+      dataType: 'script',
+      success: function(data, textStatus, jqXHR) {
+
+      }
+    })
+  })
+</script>

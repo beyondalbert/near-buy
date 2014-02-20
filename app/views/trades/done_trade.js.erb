@@ -1,0 +1,1 @@
+$("#trade_<%= @trade.id.to_s %>").html("<%= escape_javascript(render "trade_item", { trade: @trade }) %>");
