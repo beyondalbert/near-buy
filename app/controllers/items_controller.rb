@@ -1,8 +1,19 @@
 class ItemsController < ApplicationController
   before_action :find_item, only: [:edit, :update, :show, :destroy]
+  skip_before_action :require_login, only: [:show]
 
   def index
-    @items = current_user.items
+    @flag = params[:t_slot]
+    case @flag
+    when "month"
+      @items = current_user.items.select { |item| item.created_at > 30.days.ago }
+    when "half_year"
+      @items = current_user.items.select { |item| item.created_at > 182.days.ago }
+    when "year"
+      @items = current_user.items.select { |item| item.created_at > 365.days.ago }
+    else
+      @items = current_user.items
+    end
   end
 
   def new

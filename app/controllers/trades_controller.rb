@@ -1,5 +1,6 @@
 class TradesController < ApplicationController
   before_action :find_item, only: [:create, :management]
+  skip_before_action :require_login, only: [:create]
 
   def create
     @item = Item.find(params[:item_id])
