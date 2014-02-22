@@ -20,7 +20,12 @@ class TradesController < ApplicationController
 
     if @trade.save
       @success = true
-      flash[:success] = "订单提交成功！"
+
+      # add phone notifiction
+      ChinaSMS.use :smsbao, username: APP_CONFIG["sms_account"]["user"], password: APP_CONFIG["sms_account"]["password"]
+      ChinaSMS.to @buyer.phone, "你购买了#{@item.subject}#{@trade.number}份，总价：#{@trade.number * @item.price}元，如有问题，请联系卖家： #{@item.owner.name}（#{@item.owner.phone}）。非本人操作请无视之。［身边买］"
+
+      flash[:success] = "订单提交成功！订单信息已经发送到你手机上，请查收！"
     end
     respond_to do |format|
       format.js

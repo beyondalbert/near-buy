@@ -5,6 +5,9 @@ defaults: &DEFAULTS
   trade_status:
     1: "未发货"
     2: "已发货"
+  sms_account:
+    user: "username"
+    password: "password"
 
 development:
   <<: *DEFAULTS
