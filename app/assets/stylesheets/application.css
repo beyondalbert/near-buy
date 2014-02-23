@@ -133,3 +133,14 @@
 html, body, .container {
   height: 100%;
 }
+
+.slogan-title {
+  font-size: 56px;
+  line-height: 56px;
+  margin-bottom: 30px;
+}
+
+.slogan-description {
+  font-size: 21px;
+  line-height: 21px;
+}

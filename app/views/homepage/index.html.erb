@@ -1,2 +1,93 @@
-<h1>Homepage#index</h1>
-<p>Find me in app/views/homepage/index.html.erb</p>
+<div class="sum-up panel panel-default">
+  <div class="row panel-body">
+    <div class="col-xs-8 col-md-8">
+      <div class="slogan">
+        <h1 class="slogan-title">让买卖更容易</h1>
+        <p class="slogan-description">“身边买”为身边的买卖提供功能简洁、完全免费的买入和销售统计服务</p>
+      </div>
+    </div>
+    <div class="col-xs-4 col-md-4">
+      <%= form_for @user, html: { class: "form-horizontal"} do |f| %>
+        <% if @user.errors.any? %>
+          <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div class="form-group">
+          <div class="col-sm-12">
+            <%= f.text_field(:email, class: "form-control", placeholder: "Email 地址") %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-12">
+            <%= f.password_field(:password, class: "form-control", placeholder: "密码") %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-12">
+            <%= f.password_field(:password_confirmation, class: "form-control", placeholder: "确认密码")%>
+          </div>
+        </div>
+        <div class="form-group help-block">
+          <div class="col-sm-12">
+            买家可以直接在商品主页购买，无需注册，卖家需要注册后才能发布商品。
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-12">
+            <%= f.submit "注 册", class: "btn btn-lg btn-primary btn-block" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div id="content" class=" panel panel-default">
+  <div class="features panel-body">
+    <div class="row">
+      <div class="col-xs-6 col-md-6">
+        <h3>方便的商品买入</h3>
+        <h4>简洁的商品展示</h4>
+        <p>包含商品的价格及实物展示图，一键购买，无需其他就可以坐等卖家送货上门</p>
+        <h4>买卖免费短信通知</h4>
+        <p>买下一件商品后，这次买卖的信息会自动以短信的方式发送到你留下的手机上</p>
+      </div>
+      <div class="col-xs-6 col-md-6">
+        <%= image_tag "demo-buy-in.jpg", class: "img-rounded", title: "方便的商品买入" %>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-xs-6 col-md-6">
+        <%= image_tag "demo-item-release.jpg", class: "img-rounded", title: "快捷的商品发布" %>
+      </div>
+      <div class="col-sx-6 col-md-6">
+        <h3>快捷的商品发布</h3>
+        <h4>显而易见的创建商品入口</h4>
+        <p>用户注册后，直接在用户的下拉菜单中就可以看到创建商品的入口</p>
+        <h4>简单的商品信息填写</h4>
+        <p>只须填写商品的名字、描述、价格及添加上商品实物图就可以立马发布</p>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-xs-6 col-md-6">
+        <h3>简洁的商品订单处理及统计</h3>
+        <h4>一个复选框帮你处理订单</h4>
+        <p>如果订单商品已经送达，只需在该订单打勾即表示已完成订单</p>
+        <h4>实用的商品订单统计查看</h4>
+        <p>帮你实时地统计出该商品的销量，并且可以方便的查看全部订单、未送货的订单和已送货的订单</p>
+      </div>
+      <div class="col-xs-6 col-md-6">
+        <%= image_tag "demo-item-statics.jpg", class: "img-rounded", title: "简洁的商品订单处理及统计" %>
+      </div>
+    </div>
+  </div>
+</div>
