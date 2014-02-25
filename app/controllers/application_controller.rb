@@ -14,6 +14,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def require_admin
+    if current_user.nil?
+      redirect_to login_path
+    else
+      if !current_user.admin?
+        render_403
+      end
+    end
+  end
+
   def current_user
     @current_user ||= User.find_by_auth_token!(cookies[:user]) if cookies[:user]
   end

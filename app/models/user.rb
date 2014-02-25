@@ -46,4 +46,8 @@ class User < ActiveRecord::Base
   def default_address
     self.addresses.select { |address| address.default}.first
   end
+
+  def admin?
+    self.admin
+  end
 end

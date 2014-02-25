@@ -22,6 +22,11 @@
         <li><%= link_to "出售中的商品", items_path %></li>
         <li><%= link_to "发布商品", new_item_path %></li>
         <li><%= link_to "个人资料设置", edit_user_path(current_user.id) %></li>
+        <li>
+        <% if current_user.admin? %>
+          <%= link_to "管理主页", admin_index_path %>
+        <% end %>
+        </li>
         <li class="divider"></li>
         <li>
         <%= link_to "退出", logout_path %>

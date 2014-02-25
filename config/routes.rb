@@ -1,5 +1,7 @@
 Applepie::Application.routes.draw do
 
+  get "about" => "homepage#about", :as => "about"
+  get "disclaimer" => "homepage#disclaimer", :as => "disclaimer"
   get "addresses/set_default"
   get "trades/management"
   put "trades/done_trade"
@@ -8,6 +10,12 @@ Applepie::Application.routes.draw do
   get "signup" => "users#new", :as => "signup"
   root :to => "homepage#index"
 
+  scope :admin do
+    resources :feedbacks, only: [:index]
+  end
+  resources :admin, only: [:index]
+
+  resources :feedbacks, only: [:new, :create]
   resources :users
   resources :sessions
   resources :password_resets

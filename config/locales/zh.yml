@@ -21,6 +21,14 @@ zh:
               not_a_number: "不是数字，请重新输入！"
             buyer:
               invalid: "信息输入有错误：名字，电话，社交帐号和地址都不能为空！"
+        feedback:
+          attributes:
+            name:
+              blank: "不能为空！"
+            email:
+              blank: "不能为空！"
+            content:
+              blank: "不能为空！"
     attributes:
       user:
         email: "Email"
@@ -39,3 +47,7 @@ zh:
       trade:
         number: "购买数量"
         buyer: "购买人"
+      feedback:
+        name: "姓名"
+        email: "Email"
+        content: "反馈内容"

@@ -1,0 +1,29 @@
+<div class="row row-offcanvas row-offcanvas-right">
+  <div class="col-xs-12 col-sm-9 panel panel-default left-div">
+    <div class="table-responsive">
+      <table id="items_list" class="table table-condensed">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>名字</th>
+            <th>Email</th>
+            <th>内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @feedbacks.each.with_index do |feedback, index| %>
+            <tr id="feedback_<%= feedback.id.to_s %>">
+              <%= render "feedback_item", {feedback: feedback, index: index} %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div><!--/span-->
+
+  <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+    <div class="list-group">
+      <%= link_to "反馈列表", feedbacks_path, class: "list-group-item active" %>
+    </div>
+  </div><!--/span-->
+</div><!--/row-->

@@ -3,4 +3,10 @@ class HomepageController < ApplicationController
   def index
     @user = User.new
   end
+
+  def about
+  end
+
+  def disclaimer
+  end
 end
