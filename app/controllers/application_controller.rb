@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= User.find_by_auth_token!(cookies[:user]) if cookies[:user]
+    @current_user ||= User.find_by_auth_token(cookies[:user]) if cookies[:user]
   end
 
   def login_as(user, remember_me)

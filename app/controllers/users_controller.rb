@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   layout "user", except: [:edit]
+  skip_before_action :require_login, only: [:new, :create]
 
   def new
     @user = User.new
