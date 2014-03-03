@@ -2,8 +2,18 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: applepie
-  pool: 5
+  database: near-buy-dev
+  pool: 16
+  username: root
+  password: 
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: near-buy-pro
+  pool: 16
   username: root
   password: 
   socket: /var/run/mysqld/mysqld.sock

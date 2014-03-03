@@ -25,7 +25,7 @@ Applepie::Application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
-  config.assets.debug = true
+  config.assets.debug = false
 
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default_url_options = { :host => "localhost:3000" }
@@ -35,8 +35,8 @@ Applepie::Application.configure do
     address: "smtp.163.com",
     port: 25,
     domain: "163.com",
-    user_name: "****@163.com",
-    password: "****",
+    user_name: "shenbianmai@163.com",
+    password: "******",
     authentication: :login,
     enable_starttls_auto: true
   }

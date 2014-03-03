@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "dailynotes_rails@163.com"
+  default from: "shenbianmai@163.com"
   layout 'mailer'
 
   # Subject can be set in your I18n file at config/locales/en.yml
