@@ -50,4 +50,12 @@ class User < ActiveRecord::Base
   def admin?
     self.admin
   end
+
+  def display_name
+    if self.name
+      self.name
+    else
+      self.email
+    end
+  end
 end

@@ -1,19 +1,24 @@
-development:
+default_mysql: &default_mysql
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: near-buy-dev
-  pool: 16
-  username: root
-  password: 
+  pool: 5
   socket: /var/run/mysqld/mysqld.sock
 
 development:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: near-buy-pro
-  pool: 16
+  <<: *default_mysql
+  database: nb_dev
+  username: root
+  password: ""
+
+test:
+  <<: *default_mysql
+  database: nb_test
+  username: root
+  password: ""
+
+production:
+  <<: *default_mysql
+  database: nb_pro
   username: root
   password: 
-  socket: /var/run/mysqld/mysqld.sock
