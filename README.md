@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/beyondalbert/applepie.png?branch=master)](https://travis-ci.org/beyondalbert/applepie)
+[![Build Status](https://travis-ci.org/beyondalbert/near-buy.png?branch=master)](https://travis-ci.org/beyondalbert/near-buy)
+
 
 == README
 

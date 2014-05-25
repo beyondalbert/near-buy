@@ -6,7 +6,7 @@ class Buyer < ActiveRecord::Base
   def full_address
     province_code = self.address[0..1] + "0000"
     city_code = self.address[0..3] + "00"
-    ChinaCity.get(province_code) + " " + ChinaCity.get(city_code) + " " + ChinaCity.get(self.address) + self.address_detail
+    ChinaCity.get(province_code) + " " + ChinaCity.get(city_code) + " " + ChinaCity.get(self.address) + " " + self.address_detail
   end
 
   def sns
